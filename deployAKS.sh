@@ -81,11 +81,11 @@ while IFS= read -r line; do
     indentedPrivateKey+="    $line"$'\n'  # Add two spaces (you can adjust the number of spaces as needed)
 done <<< "$privateKey"
  
-echo "$indentedPrivateKey" >> sshSecret.yml
-cat sshSecret.yml
+echo "$indentedPrivateKey" >> sshSecret.yaml
+cat sshSecret.yaml
 # Create a Kubernetes namespace and apply the SSH secret
 kubectl create namespace argocd
-kubectl apply -f sshSecret.yml -n argocd
+kubectl apply -f sshSecret.yaml -n argocd
  
 # Connect the public key to gitHub
 gh api \
@@ -110,4 +110,4 @@ kubectl create clusterrolebinding github-actions-clusterrolebinding --serviceacc
 git pull
 gh workflow run Deploy-secrets-to-Kubernetes --ref develop
 git pull
-kubectl apply -f gh-secrets.yml
+kubectl apply -f gh-secrets.yaml

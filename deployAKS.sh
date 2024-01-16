@@ -64,8 +64,8 @@ az aks get-credentials --resource-group $resGroup --name $cluster
  
 #ADD SUPPORT FOR GH API
 #CHECK PRIVATE AND PUBLIC KEY
-privateKeyFile="$HOME/.ssh/id_rsa"
-publicKeyFile="$HOME/.ssh/id_rsa.pub"
+privateKeyFile="$HOME/hampus/.ssh/id_rsa"
+publicKeyFile="$HOME/hampus/.ssh/id_rsa.pub"
  
 if [ -f "$privateKeyFile" ] && [ -f "$publicKeyFile" ]; then
     privateKey=$(cat "$privateKeyFile")

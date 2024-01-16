@@ -64,8 +64,8 @@ az aks get-credentials --resource-group $resGroup --name $cluster
  
 #ADD SUPPORT FOR GH API
 #CHECK PRIVATE AND PUBLIC KEY
-privateKeyFile="$HOME/hampus/.ssh/id_rsa"
-publicKeyFile="$HOME/hampus/.ssh/id_rsa.pub"
+privateKeyFile="$HOME/.ssh/id_rsa"
+publicKeyFile="$HOME/.ssh/id_rsa.pub"
  
 if [ -f "$privateKeyFile" ] && [ -f "$publicKeyFile" ]; then
     privateKey=$(cat "$privateKeyFile")
@@ -105,9 +105,3 @@ gh secret set KUBE_CONFIG --repo Carelyo/prodeploy --body "$(base64 -w 0 -i ~/.k
 kubectl create serviceaccount github-actions-serviceaccount
 kubectl create clusterrole github-actions-clusterrole --verb=get,list,create,update,delete --resource=pods,services,deployments
 kubectl create clusterrolebinding github-actions-clusterrolebinding --serviceaccount=default:github-actions-serviceaccount --clusterrole=github-actions-clusterrole
- 
-# Run a workflow to fetch secrets and apply them to the Kubernetes cluster
-git pull
-gh workflow run Deploy-secrets-to-Kubernetes --ref develop
-git pull
-kubectl apply -f gh-secrets.yaml

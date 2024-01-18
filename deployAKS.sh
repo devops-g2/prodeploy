@@ -99,7 +99,7 @@ gh api \
  
 # Add a secret to GitHub for external access to the cluster
 #gh auth refresh -h github.com -s admin:public_key
-gh secret set KUBE_CONFIG --repo Carelyo/prodeploy --body "$(base64 -w 0 -i ~/.kube/config)"
+gh secret set KUBE_CONFIG --repo devops-g2/prodeploy --body "$(base64 -w 0 -i ~/.kube/config)"
  
 #SETUP REMOTE CONNECTION TO GIT
 kubectl create serviceaccount github-actions-serviceaccount

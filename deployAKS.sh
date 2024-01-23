@@ -1,5 +1,6 @@
 #!/bin/bash
- 
+git stash
+git pull
 # This script automates the setup of an Azure Kubernetes Service (AKS) cluster,
 # integrates it with GitHub, and configures secrets for deployment.
 #Useful tip

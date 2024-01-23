@@ -1,5 +1,5 @@
 #!/bin/bash
-
+git pull
 # Source configuration variables from a separate file
 source config.sh
 

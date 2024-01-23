@@ -5,7 +5,7 @@ source config.sh
 
 # Read Traefik values from a file
 #sed -i -e 's/\r$//' deploy.sh
-traefikValues="$(cat traefikValues.yml)"
+traefikValues="$(cat traefikValues.yaml)"
 
 # Print some configuration information for reference
 echo "resgrp:"$resGroup""
@@ -44,26 +44,26 @@ echo "tag=\"$tag\""
 # Installing Traefik in a Kubernetes cluster
 kubectl create namespace traefik
 helm repo add traefik https://helm.traefik.io/traefik
-helm upgrade --install traefik --values traefikValues.yml \
+helm upgrade --install traefik --values traefikValues.yaml \
     --namespace traefik \
     traefik/traefik \
     --version 24.0.0 \
     --create-namespace 
-kubectl apply -f traefikAuth.yml -n traefik
+kubectl apply -f traefikAuth.yaml -n traefik
 # END OF TRAEFIK INSTALLATION
 
 # Installing ArgoCD in the cluster
 helm repo add argo https://argoproj.github.io/argo-helm
-helm upgrade --install my-argo-cd argo/argo-cd --values argoValues.yml \
+helm upgrade --install my-argo-cd argo/argo-cd --values argoValues.yaml \
     --namespace argocd \
     --version 5.46.8 \
     --create-namespace 
-kubectl apply -f argoIngress.yml -n argocd
+kubectl apply -f argoIngress.yaml -n argocd
 # END OF ARGOCD INSTALLATION
 
 # Installing Prometheus and Grafana
 helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
-helm upgrade --install prometheus prometheus-community/kube-prometheus-stack --values grafanaValues.yml \
+helm upgrade --install prometheus prometheus-community/kube-prometheus-stack --values grafanaValues.yaml \
 --namespace prometheus-grafana \
 --version 51.x \
 --create-namespace 
@@ -74,7 +74,7 @@ grafanaPod=$(kubectl get pods -n prometheus-grafana | awk '$1 ~ /^prometheus-gra
 
 echo "grafanaPod: $grafanaPod"
 kubectl delete pods $grafanaPod -n prometheus-grafana
-kubectl apply -f grafanaIngress.yml -n prometheus-grafana
+kubectl apply -f grafanaIngress.yaml -n prometheus-grafana
 # END OF PROMETHEUS/GRAFANA INSTALLATION
 
 # Configuring Network Security Group (NSG) rules

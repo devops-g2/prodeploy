@@ -8,7 +8,7 @@ spec:
     - traefik
   routes:
     - kind: Rule
-      match: Host(`mydomain.com`) && PathPrefix(`/argocd`)
+      match: Host(`mydomain.com`) && PathPrefix(`/argocd/`)
       priority: 10
       services:
         - name: my-argo-cd-argocd-server 
@@ -16,7 +16,7 @@ spec:
       #middlewares:
       #  - name: argocd-path-prefix
     - kind: Rule
-      match: Host(`mydomain.com`) && Headers(`Content-Type`, `application/grpc`) && PathPrefix(`/argocd`)
+      match: Host(`mydomain.com`) && Headers(`Content-Type`, `application/grpc`) && PathPrefix(`/argocd/`)
       priority: 11
       services:
         - name: my-argo-cd-argocd-server

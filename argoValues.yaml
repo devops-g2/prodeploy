@@ -73,7 +73,7 @@ redis-ha:
 #INGRESS
   ingress:
     # -- Enable an ingress resource for the Argo CD server
-    enabled: false
+    enabled: true
     # -- Additional ingress annotations
     annotations: {}
     # -- Additional ingress labels
@@ -90,7 +90,7 @@ redis-ha:
 
     # -- List of ingress paths
     paths:
-      - /
+      - /argocd/
     # -- Ingress path type. One of `Exact`, `Prefix` or `ImplementationSpecific`
     pathType: Prefix
     # -- Additional ingress paths

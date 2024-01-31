@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
         - name: service2
-          imagePullPolicy: always
+          imagePullPolicy: Always
           image: dev22acr.azurecr.io/website:latest
           ports:
             - containerPort: 5002

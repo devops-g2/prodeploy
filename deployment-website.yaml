@@ -4,16 +4,19 @@ metadata:
   name: website-deployment-v1
   labels:
     app: service2
+    component: website
 spec:
   replicas: 3
   selector:
     matchLabels:
       app: service2
+      component: website
       version: v1
   template:
     metadata:
       labels:
         app: service2
+        component: website
         version: v1
     spec:
       containers:
@@ -28,11 +31,12 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: service2
+  name: service2-website
 spec:
   type: ClusterIP
   selector:
     app: service2
+    component: website
   ports:
     - port: 5002
       targetPort: 5002
@@ -40,7 +44,7 @@ spec:
 apiVersion: traefik.containo.us/v1alpha1
 kind: IngressRoute
 metadata:
-  name: service2-ingress
+  name: service2-website-ingress
 spec:
   entryPoints:
     - web
@@ -48,5 +52,5 @@ spec:
     - match: Host(`20.22.117.120`) 
       kind: Rule
       services:
-        - name: service2
+        - name: service2-website
           port: 5002

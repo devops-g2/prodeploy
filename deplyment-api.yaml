@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: service2-deployment-v1
+  name: api-deployment
   labels:
     app: service2
 spec:
@@ -19,7 +19,7 @@ spec:
       containers:
         - name: service2
           imagePullPolicy: Never
-          image: microservice2:1.0.0
+          image: dev22acr.azurecr.io/api:latest
           ports:
             - containerPort: 5002
 ---
@@ -35,16 +35,16 @@ spec:
     - port: 5002
       targetPort: 5002
 ---
-apiVersion: traefik.containo.us/v1alpha1
-kind: IngressRoute
-metadata:
-  name: service2-ingress
-spec:
-  entryPoints:
-    - web
-  routes:
-    - match: Host(`service2.local`)
-      kind: Rule
-      services:
-        - name: service2
-          port: 5002
+#apiVersion: traefik.containo.us/v1alpha1
+#kind: IngressRoute
+#metadata:
+#  name: service2-ingress
+#spec:
+#  entryPoints:
+#    - web
+#  routes:
+#    - match: Host(`service2.local`)
+#      kind: Rule
+#      services:
+#        - name: service2
+#          port: 5002

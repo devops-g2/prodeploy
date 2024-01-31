@@ -77,6 +77,11 @@ kubectl delete pods $grafanaPod -n prometheus-grafana
 kubectl apply -f grafanaIngress.yaml -n prometheus-grafana
 # END OF PROMETHEUS/GRAFANA INSTALLATION
 
+# Apply manifest files
+kubectl apply -f deployment-api.yaml
+kubectl apply -f deployment-website.yaml
+#End of applying mainfest files 
+
 # Configuring Network Security Group (NSG) rules
 externalIP=$(kubectl get service/traefik -o jsonpath='{.status.loadBalancer.ingress[0].ip}' -n traefik)
 echo "$externalIP"

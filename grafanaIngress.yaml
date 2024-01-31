@@ -7,7 +7,7 @@ spec:
   entryPoints:
     - traefik
   routes:
-    - match: Host(`mydomain.com`) && PathPrefix (`/grafana/`)
+    - match: Host(`20.22.117.120`) && PathPrefix (`/grafana/`)
       kind: Rule
       services:
         - name: prometheus-grafana

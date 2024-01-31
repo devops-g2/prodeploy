@@ -4,16 +4,19 @@ metadata:
   name: api-deployment-v1
   labels:
     app: service2
+    component: api
 spec:
   replicas: 3
   selector:
     matchLabels:
       app: service2
+      component: api
       version: v1
   template:
     metadata:
       labels:
         app: service2
+        component: api
         version: v1
     spec:
       containers:

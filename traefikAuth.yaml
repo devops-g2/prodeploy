@@ -16,3 +16,11 @@ metadata:
 spec:
   basicAuth:
     secret: traefik-dashboard-auth-secret
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: Middleware
+metadata:
+  name: content-type-autodetect
+spec:
+  contentType:
+    autoDetect: false

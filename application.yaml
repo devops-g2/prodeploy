@@ -12,6 +12,8 @@ spec:
     path: .
     directory:
       recurse: true
+    credentials:
+      secretName: git-credentials
   project: default
   syncPolicy:
     automated:

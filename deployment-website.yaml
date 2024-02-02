@@ -24,7 +24,7 @@ spec:
           imagePullPolicy: Always
           image: dev22acr.azurecr.io/website:latest
           ports:
-            - containerPort: 3001
+            - containerPort: 5173
       imagePullSecrets:
         - name: dev22acr-secret
 ---
@@ -38,8 +38,8 @@ spec:
     app: service2
     component: website
   ports:
-    - port: 3001
-      targetPort: 3001
+    - port: 5173
+      targetPort: 5173
 ---
 apiVersion: traefik.containo.us/v1alpha1
 kind: IngressRoute
@@ -53,4 +53,4 @@ spec:
       kind: Rule
       services:
         - name: service2-website
-          port: 3001
+          port: 5173

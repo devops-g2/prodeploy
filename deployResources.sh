@@ -59,6 +59,7 @@ helm upgrade --install my-argo-cd argo/argo-cd --values argoValues.yaml \
     --version 5.46.8 \
     --create-namespace 
 kubectl apply -f argoIngress.yaml -n argocd
+echo "kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d"
 # END OF ARGOCD INSTALLATION
 
 # Installing Prometheus and Grafana

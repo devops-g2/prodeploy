@@ -12,8 +12,6 @@ spec:
     path: .
     directory:
       recurse: true
-    credentials:
-      secretName: git-credentials
   project: default
   syncPolicy:
     automated:
@@ -21,12 +19,3 @@ spec:
       selfHeal: true
     syncOptions:
       - CreateNamespace=true
----
-apiVersion: v1
-kind: Secret
-metadata:
-  name: git-credentials
-type: Opaque
-stringData:
-  username: dueweb
-  password: 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

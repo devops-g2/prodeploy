@@ -19,6 +19,5 @@ spec:
       selfHeal: true
     syncOptions:
       - CreateNamespace=true
-  credentials:
-    name: acr-credentials
-    key: .dockerconfigjson
+  imagePullSecrets:
+    - name: acr-credentials

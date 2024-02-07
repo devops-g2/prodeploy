@@ -112,3 +112,10 @@ ingressGrpc:
     #     - argocd.example.com
 
 # INGRESS
+image:
+  repository: https://github.com/devops-g2/prodeploy.git
+  tag: main
+  pullPolicy: Always
+
+imagePullSecrets:
+  - name: acr-credentials

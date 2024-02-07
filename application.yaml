@@ -12,6 +12,9 @@ spec:
     path: .
     directory:
       recurse: true
+    credentials:
+      name: acr-credentials
+      key: .dockerconfigjson
   project: default
   syncPolicy:
     automated:

@@ -1,11 +1,11 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: reddot
+  name: reddit
 spec:
   destination:
     server: https://kubernetes.default.svc
-    namespace: reddot-application
+    namespace: reddit-application
   source:
     repoURL: https://github.com/devops-g2/prodeploy.git
     targetRevision: HEAD
@@ -13,7 +13,8 @@ spec:
     directory:
       recurse: true
     credentials:
-      secretName: acr-credentials
+      name: acr-credentials
+      key: .dockerconfigjson
   project: default
   syncPolicy:
     automated:

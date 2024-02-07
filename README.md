@@ -93,23 +93,23 @@ kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.pas
 ### YAML Files
 
 ProDeploy/  
-|-- README.md/  
+|-- **README.md**/  
 |-- **application.yaml** *(Brief description)*/  
-|-- argoIngress.yaml *(Brief description)*/  
-|-- argoValues.yaml/  
-|-- azureCredentials.yaml/  
-|-- config.sh/  
-|-- deployAKS.sh/  
-|-- deployResources.sh/  
-|-- deployment-api.yaml/  
-|-- deployment-website.yaml/
-|-- gitCredentials.yaml/  
-|-- grafanaIngress.yaml/  
-|-- grafanaScript.sh/  
-|-- grafanaValues.yaml/  
-|-- sshSecret.yaml/  
-|-- traefikAuth.yaml/  
-|-- traefikValues.yaml/  
+|-- **argoIngress.yaml** *(Brief description)*/  
+|-- **argoValues.yaml**/  
+|-- **azureCredentials.yaml**/  
+|-- **config.sh**/  
+|-- **deployAKS.sh**/  
+|-- **deployResources.sh**/  
+|-- **deployment-api.yaml**/  
+|-- **deployment-website.yaml**/
+|-- **gitCredentials.yaml**/  
+|-- **grafanaIngress.yaml**/  
+|-- **grafanaScript.sh**/  
+|-- **grafanaValues.yaml**/  
+|-- **sshSecret.yaml**/  
+|-- **traefikAuth.yaml**/  
+|-- **traefikValues.yaml**/  
 |-- ..../
 
 ## Close cluster

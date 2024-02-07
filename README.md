@@ -92,7 +92,7 @@ kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.pas
 
 ### YAML Files
 
-ProDeploy/  
+**ProDeploy/**  
 |-- **README.md**/  
 |-- **application.yaml/** *(Brief description)*  
 |-- **argoIngress.yaml/** *(Brief description)*  

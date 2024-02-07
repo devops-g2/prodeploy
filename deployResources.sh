@@ -72,7 +72,7 @@ helm upgrade --install prometheus prometheus-community/kube-prometheus-stack --v
 --version 51.x \
 --create-namespace 
 bash grafanaScript.sh serve_from_sub_path=true
-bash grafanaScript.sh root_url=20.22.117.120:9000/grafana/
+bash grafanaScript.sh root_url=20.22.117.120
 
 grafanaPod=$(kubectl get pods -n prometheus-grafana | awk '$1 ~ /^prometheus-grafana/ {print $1; exit}')
 

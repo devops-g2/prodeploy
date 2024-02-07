@@ -61,7 +61,7 @@ helm upgrade --install my-argo-cd argo/argo-cd --values argoValues.yaml \
 kubectl apply -f argoIngress.yaml -n argocd
 kubectl apply -f application.yaml -n reddit-application
 kubectl apply -f gitCredentials.yaml -n argocd
-kubectl apply -f azureCredentials.yaml -n
+kubectl apply -f azureCredentials.yaml
 echo "kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d"
 # END OF ARGOCD INSTALLATION
 

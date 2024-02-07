@@ -84,7 +84,7 @@ ArgoCD: ArgoCD currently sets the password automatically, run the following comm
 kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d
 ```
                                                                
-## Project Structure
+## Repo Structure
 
 Our project structure:
 

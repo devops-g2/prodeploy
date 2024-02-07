@@ -9,8 +9,10 @@ A simple startup version for your Azure project and resources using helm
 2. [Before Installation](#before-installation)
    - [Step-by-step](#step-by-step)
    - [Passwords](#passwords)
-3. [Project Structure](#project-structure)
+3. [Configuration Details](#configuration-details)
+     - [YAML Files](#yaml-files) 
 4. [Close cluster](#close-cluster)
+5. [Troubleshooting](#troubleshooting)
 
 ## Introduction
 
@@ -27,10 +29,12 @@ Once your AKS cluster is up and running, the `deployResources.sh` script takes c
 ## Before Installation
 
 **Note: Before you do anything log in to a GitHub account with access using: \  
-"gh auth login" \  
-"gh auth refresh -h github.com -s admin:public_key"**  
+```
+gh auth login" \  
+"gh auth refresh -h github.com -s admin:public_key"
+```
 
-**Note: If using NSG rule - Before running this script, ensure you check the IP access configuration in the `deployResources.sh` and add the appropriate IPs (your own IP to access the resources). Example Below:**
+**Note: If using NSG (netwrok security rule) - Before running this script, ensure you check the IP access configuration in the `deployResources.sh` and add the appropriate IPs (your own IP to access the resources). Example Below:**
 
 ```
 az network nsg rule create \
@@ -69,7 +73,7 @@ bash deployAKS.sh
 ```
 `bash deployResources.sh` to deploy the essential tools.   
 ```
-bash deployResource.sh
+bash deployResources.sh
 ```  
 6. The cluster and resources should be up and running.  
 
@@ -83,37 +87,34 @@ ArgoCD: ArgoCD currently sets the password automatically, run the following comm
 ```
 kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d
 ```
-                                                               
-## Repo Structure
 
-Our project structure:
+## Configuration Details
+
+### YAML Files
 
 ProDeploy/  
-|-- application.yaml/  
-|-- argoIngress.yaml/  
+|-- README.md/ 
+|-- application.yaml *(Brief description)*/  
+|-- argoIngress.yaml *(Brief description)**/  
 |-- argoValues.yaml/  
-|-- azurecred.yaml/  
+|-- azureCredentials.yaml/  
 |-- config.sh/  
 |-- deployAKS.sh/  
 |-- deployResources.sh/  
 |-- deployment-api.yaml/  
-|-- deployment-website.yaml/  
+|-- deployment-website.yaml/
+|-- gitCredentials.yaml/  
 |-- grafanaIngress.yaml/  
 |-- grafanaScript.sh/  
 |-- grafanaValues.yaml/  
-|-- README.md/  
 |-- sshSecret.yaml/  
 |-- traefikAuth.yaml/  
 |-- traefikValues.yaml/  
 |-- ..../
 
-# Close cluster
+## Close cluster
 To close the cluster run the command
 ```
 az group delete --resource-group resGrp1 -y 
 ```
 This will shut down the cluster and delete everything and a restart and re-installation of the resources is required to get it functioning again.
-
-
-
-

@@ -3,24 +3,24 @@ kind: Deployment
 metadata:
   name: website-deployment-v1
   labels:
-    app: service2
+    app: service2-website
     component: website
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: service2
+      app: service2-website
       component: website
       version: v1
   template:
     metadata:
       labels:
-        app: service2
+        app: service2-website
         component: website
         version: v1
     spec:
       containers:
-        - name: service2
+        - name: service2-website
           imagePullPolicy: Always
           image: dev22acr.azurecr.io/website:latest
           ports:
@@ -35,7 +35,7 @@ metadata:
 spec:
   type: ClusterIP
   selector:
-    app: service2
+    app: service2-website
     component: website
   ports:
     - port: 5173

@@ -51,7 +51,7 @@ az network nsg rule create \
 
 1. Login to Microsoft Azure  
 2. Access the Azure CLI  
-3. Run the command to authenticate yourself to github using the account thats connected with Carelyo.  
+3. Run the command to authenticate yourself to github using the account thats connected with the prodeploy repo.  
 ```
 "gh auth login" \  
 "gh auth refresh -h github.com -s admin:public_key"

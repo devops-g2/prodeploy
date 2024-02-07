@@ -102,7 +102,7 @@ ProDeploy/
 |-- **deployAKS.sh/**  
 |-- **deployResources.sh/**  
 |-- **deployment-api.yaml/**  
-|-- **deployment-website.yaml/**
+|-- **deployment-website.yaml/**  
 |-- **gitCredentials.yaml/**  
 |-- **grafanaIngress.yam/l**/  
 |-- **grafanaScript.sh/**  

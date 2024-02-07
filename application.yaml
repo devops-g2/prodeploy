@@ -4,7 +4,8 @@ metadata:
   name: reddit
 spec:
   destination:
-    name: acr-credentials
+    server: https://kubernetes.default.svc
+    namespace: reddit-application
   source:
     repoURL: https://github.com/devops-g2/prodeploy.git
     targetRevision: HEAD

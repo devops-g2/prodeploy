@@ -95,7 +95,7 @@ kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.pas
 ProDeploy/  
 |-- README.md/ 
 |-- application.yaml *(Brief description)*/  
-|-- argoIngress.yaml *(Brief description)**/  
+|-- argoIngress.yaml *(Brief description)*/  
 |-- argoValues.yaml/  
 |-- azureCredentials.yaml/  
 |-- config.sh/  

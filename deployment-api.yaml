@@ -26,7 +26,7 @@ spec:
           imagePullPolicy: Always
           name: service2-api
           ports:
-            - containerPort: 5173
+            - containerPort: 8001
       imagePullSecrets:
         - name: dev22acr-secret
 ---
@@ -39,8 +39,8 @@ metadata:
   namespace: reddit-application
 spec:
   ports:
-    - port: 8000
-      targetPort: 8000
+    - port: 8001
+      targetPort: 8001
   selector:
     app: service2-api
     component: api
@@ -61,4 +61,4 @@ spec:
       match: Host(`20.7.110.0`)
       services:
         - name: service2-api
-          port: 8000
+          port: 8001

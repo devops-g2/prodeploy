@@ -1,4 +1,4 @@
-websiteVersion: apps/v1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
@@ -30,7 +30,7 @@ spec:
       imagePullSecrets:
         - name: dev22acr-secret
 ---
-websiteVersion: v1
+apiVersion: v1
 kind: Service
 metadata:
   labels:
@@ -46,7 +46,7 @@ spec:
     component: website
   type: ClusterIP
 ---
-websiteVersion: traefik.containo.us/v1alpha1
+apiVersion: traefik.containo.us/v1alpha1
 kind: IngressRoute
 metadata:
   labels:

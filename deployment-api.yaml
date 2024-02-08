@@ -49,7 +49,7 @@ spec:
   entryPoints:
     - web
   routes:
-    - match: Host(`20.22.117.120`)
+    - match: Host(`20.7.110.0`)
       kind: Rule
       services:
         - name: service2-api

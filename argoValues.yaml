@@ -31,7 +31,7 @@ ingress:
   ## Hostnames must be provided if Ingress is enabled.
   ## Secrets must be manually created in the namespace
   hosts: 
-    - 20.7.110.0
+    - 20.10.108.94
 
   # -- List of ingress paths
   paths:

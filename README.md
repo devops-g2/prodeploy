@@ -94,7 +94,7 @@ kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.pas
 
 **ProDeploy/**  
 |-- **README.md**/  
-|-- **application.yaml/** *(Brief description)*  
+|-- **application.yaml/** *(This YAML configures Argo CD ("reddit") to deploy from "https://github.com/devops-g2/prodeploy.git" to "reddit-application" with auto-sync, pruning, self-healing, and namespace creation.)*  
 |-- **argoIngress.yaml/** *(Brief description)*  
 |-- **argoValues.yaml/**  
 |-- **azureCredentials.yaml/**  

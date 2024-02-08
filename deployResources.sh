@@ -59,6 +59,7 @@ helm upgrade --install my-argo-cd argo/argo-cd --values argoValues.yaml \
     --version 5.46.8 \
     --create-namespace 
 kubectl apply -f argoIngress.yaml -n argocd
+kubectl create namespace reddit-application
 kubectl apply -f application.yaml -n reddit-application
 kubectl apply -f gitCredentials.yaml -n argocd
 kubectl apply -f azureCredentials.yaml

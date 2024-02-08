@@ -56,6 +56,5 @@ spec:
   routes:
     - kind: Rule
       match: Host(`20.10.108.94`)
-      services:
-      service2-website
+      services: service2-website
           port: 5173

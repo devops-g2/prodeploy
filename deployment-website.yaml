@@ -1,4 +1,4 @@
-apiVersion: apps/v1
+websiteVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
@@ -6,6 +6,7 @@ metadata:
     argocd.argoproj.io/instance: reddit
     component: website
   name: website-deployment-v1
+  namespace: reddit-application
 spec:
   replicas: 3
   selector:
@@ -29,12 +30,13 @@ spec:
       imagePullSecrets:
         - name: dev22acr-secret
 ---
-apiVersion: v1
+websiteVersion: v1
 kind: Service
 metadata:
   labels:
     argocd.argoproj.io/instance: reddit
   name: service2-website
+  namespace: reddit-application
 spec:
   ports:
     - port: 5173
@@ -44,18 +46,19 @@ spec:
     component: website
   type: ClusterIP
 ---
-apiVersion: traefik.containo.us/v1alpha1
+websiteVersion: traefik.containo.us/v1alpha1
 kind: IngressRoute
 metadata:
   labels:
     argocd.argoproj.io/instance: reddit
   name: service2-website-ingress
+  namespace: reddit-application
 spec:
   entryPoints:
     - web
   routes:
     - kind: Rule
       match: Host(`20.10.108.94`)
-      services: 
+      services:
         - name: service2-website
           port: 5173

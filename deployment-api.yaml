@@ -28,7 +28,7 @@ spec:
           ports:
             - containerPort: 8001
       imagePullSecrets:
-        - name: dev22acr-secret
+        - name: acr-credentials
 ---
 apiVersion: v1
 kind: Service

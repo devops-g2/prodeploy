@@ -15,31 +15,6 @@ echo "location=\"$location\""
 echo "tag=\"$tag\""
 
 
-# Commands to create Azure resources (resource group and AKS cluster)
-#az group create --name=$resGroup --location=$location --tag=$tag - Not needed? Group already created in deployaks
-
-#az aks create \
-#    --resource-group $resGroup \
-#    --name $cluster \
-#    --node-count 1 \
-#    --enable-addons http_application_routing \
-#    --generate-ssh-keys \
-#    --node-vm-size Standard_D2_v3 \
-#    --network-plugin azure
-    
-    # --node-count 3 \ 
-
-#az aks nodepool add \
-#    --resource-group $resGroup \
-#    --cluster-name $cluster \
-#    --name userpool \
-#    --node-count 1 \
-#    --node-vm-size Standard_B2s
-  
-    # --node-count 2 \
-
-# --set nodeSelector.node-type=master \
-
 
 # Installing Traefik in a Kubernetes cluster
 kubectl create namespace traefik

@@ -12,7 +12,6 @@ A simple startup version for your Azure project and resources using helm
 3. [Configuration Details](#configuration-details)
      - [YAML Files](#yaml-files) 
 4. [Close cluster](#close-cluster)
-5. [Troubleshooting](#troubleshooting)
 
 ## Introduction
 
@@ -94,6 +93,7 @@ kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.pas
 
 **ProDeploy/**  
 |-- **README.md**/  
+*(README guides through installation, configuration, troubleshooting, and offers insights into YAML files. For cluster closure, a command is provided. Detailed instructions ensure smooth deployment and usage.)*  
 |-- **application.yaml/**  
 *("This YAML configures Argo CD ("reddit") to deploy from "https://github.com/devops-g2/prodeploy.git" to "reddit-application" with auto-sync, pruning, self-healing, and namespace creation.)*  
 |-- **argoIngress.yaml/**  
@@ -134,3 +134,4 @@ To close the cluster run the command
 az group delete --resource-group resGrp1 -y 
 ```
 This will shut down the cluster and delete everything and a restart and re-installation of the resources is required to get it functioning again.
+

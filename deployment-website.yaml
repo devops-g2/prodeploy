@@ -6,7 +6,6 @@ metadata:
     argocd.argoproj.io/instance: reddit
     component: website
   name: website-deployment-v1
-  namespace: reddit-application
 spec:
   replicas: 3
   selector:
@@ -36,7 +35,6 @@ metadata:
   labels:
     argocd.argoproj.io/instance: reddit
   name: service2-website
-  namespace: reddit-application
 spec:
   ports:
     - port: 5173
@@ -52,7 +50,6 @@ metadata:
   labels:
     argocd.argoproj.io/instance: reddit
   name: service2-website-ingress
-  namespace: reddit-application
 spec:
   entryPoints:
     - web
@@ -60,5 +57,4 @@ spec:
     - kind: Rule
       match: Host(`20.10.108.94`)
       services:
-        - name: service2-website
           port: 5173

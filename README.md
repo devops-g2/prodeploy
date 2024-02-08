@@ -101,7 +101,7 @@ kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.pas
 |-- **application.yaml/**  
 *("This YAML configures Argo CD ("reddit") to deploy from "https://github.com/devops-g2/prodeploy.git" to "reddit-application" with auto-sync, pruning, self-healing, and namespace creation.)*  
 |-- **argoIngress.yaml/**  
-*("Defines Traefik IngressRoute for Argo CD server, routing requests to 20.22.117.120/argocd/ in the argocd namespace.)*   
+*("Defines Traefik IngressRoute for Argo CD server, routing requests to <LoadBalancer-IP>/argocd/ in the argocd namespace.)*   
 |-- **argoValues.yaml/**  
 *("ArgoCD configuration with server properties, ingress setup for '/argocd/' path, TLS options, and image details from a specified repository.)*  
 |-- **azureCredentials.yaml/**  
@@ -119,7 +119,7 @@ kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.pas
 |-- **gitCredentials.yaml/**  
 *("Secret named 'git-credentials' in 'argocd' namespace, storing Git credentials with username 'dueweb' and a personal access token.)*  
 |-- **grafanaIngress.yam/l**/  
-*("IngressRoute for Traefik in 'prometheus-grafana' namespace, directing traffic to 'prometheus-grafana' service at IP 20.22.117.120 with path prefix '/grafana/'.)*  
+*("IngressRoute for Traefik in 'prometheus-grafana' namespace, directing traffic to 'prometheus-grafana' service at IP <LoadBalancer-IP> with path prefix '/grafana/'.)*  
 |-- **grafanaScript.sh/**  
 *("Bash script to add key-value pairs to a ConfigMap named 'prometheus-grafana' in the 'prometheus-grafana' namespace for Grafana configuration. Used in the deployResources.sh script")*  
 |-- **grafanaValues.yaml/**  

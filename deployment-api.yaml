@@ -1,56 +1,64 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: api-deployment-v1
   labels:
-    app: service2
+    app: service2-api
+    argocd.argoproj.io/instance: reddit
     component: api
+  name: api-deployment-v1
+  namespace: reddit-application
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: service2
+      app: service2-api
       component: api
       version: v1
   template:
     metadata:
       labels:
-        app: service2
+        app: service2-api
         component: api
         version: v1
     spec:
       containers:
-        - name: service2
+        - image: 'dev22acr.azurecr.io/api:latest'
           imagePullPolicy: Always
-          image: dev22acr.azurecr.io/api:latest
+          name: service2-api
           ports:
-            - containerPort: 8000
+            - containerPort: 5173
       imagePullSecrets:
         - name: dev22acr-secret
 ---
 apiVersion: v1
 kind: Service
 metadata:
+  labels:
+    argocd.argoproj.io/instance: reddit
   name: service2-api
+  namespace: reddit-application
 spec:
-  type: ClusterIP
-  selector:
-    app: service2
-    component: api
   ports:
     - port: 8000
       targetPort: 8000
+  selector:
+    app: service2-api
+    component: api
+  type: ClusterIP
 ---
 apiVersion: traefik.containo.us/v1alpha1
 kind: IngressRoute
 metadata:
+  labels:
+    argocd.argoproj.io/instance: reddit
   name: service2-api-ingress
+  namespace: reddit-application
 spec:
   entryPoints:
     - web
   routes:
-    - match: Host(`20.7.110.0`)
-      kind: Rule
+    - kind: Rule
+      match: Host(`20.7.110.0`)
       services:
         - name: service2-api
           port: 8000

@@ -8,7 +8,7 @@ spec:
     - traefik
   routes:
     - kind: Rule
-      match: Host(`20.7.110.0`) && PathPrefix(`/argocd/`)
+      match: Host(`20.10.108.94`) && PathPrefix(`/argocd/`)
       priority: 10
       services:
         - name: my-argo-cd-argocd-server 

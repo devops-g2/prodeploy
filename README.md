@@ -2,7 +2,11 @@
 A simple startup version for your Azure project and resources using helm
 
 **Note: The scripts are used inside the Azure CLI where the `prodeploy` repository has been pulled**  
-
+**Note: Before you do anything log in to a GitHub account with access using:** \  
+```
+"gh auth login"  
+"gh auth refresh -h github.com -s admin:public_key"
+```  
 ## Table of Contents
 
 1. [Introduction](#introduction)

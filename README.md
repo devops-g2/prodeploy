@@ -94,22 +94,38 @@ kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.pas
 
 **ProDeploy/**  
 |-- **README.md**/  
-|-- **application.yaml/** *(This YAML configures Argo CD ("reddit") to deploy from "https://github.com/devops-g2/prodeploy.git" to "reddit-application" with auto-sync, pruning, self-healing, and namespace creation.)*  
-|-- **argoIngress.yaml/** *(Brief description)*  
+|-- **application.yaml/**  
+*("This YAML configures Argo CD ("reddit") to deploy from "https://github.com/devops-g2/prodeploy.git" to "reddit-application" with auto-sync, pruning, self-healing, and namespace creation.")*  
+|-- **argoIngress.yaml/**  
+*("Defines Traefik IngressRoute for Argo CD server, routing requests to 20.22.117.120/argocd/ in the argocd namespace.")*   
 |-- **argoValues.yaml/**  
+*("ArgoCD configuration with server properties, ingress setup for '/argocd/' path, TLS options, and image details from a specified repository.")*  
 |-- **azureCredentials.yaml/**  
+*("Azure Container Registry (ACR) credentials stored as a Kubernetes secret, labeled for ArgoCD instance 'reddit' to authenticate with ACR.")*  
 |-- **config.sh/**  
+*(Bash file containing some information about the cluster. This file is being used by deployAKS.sh)*  
 |-- **deployAKS.sh/**  
+*("Bash script automating Azure Kubernetes Service (AKS) setup, GitHub integration, and secrets configuration. Creates resources, SSH keys, and GitHub connections.")*  
 |-- **deployResources.sh/**  
+*("Bash script automating the setup and deployment of Traefik, ArgoCD, Prometheus, and Grafana in an Azure Kubernetes Service (AKS) cluster.")*  
 |-- **deployment-api.yaml/**  
+*("Kubernetes manifest defining a Deployment, Service, and IngressRoute for 'service2-api'. Deploys 3 replicas with ClusterIP service and Traefik IngressRoute.")*  
 |-- **deployment-website.yaml/**  
+*("Kubernetes manifest for 'service2-website' deployment, ClusterIP service, and Traefik IngressRoute in the 'reddit-application' namespace with 3 replicas.")*  
 |-- **gitCredentials.yaml/**  
+*("Secret named 'git-credentials' in 'argocd' namespace, storing Git credentials with username 'dueweb' and a personal access token.")*  
 |-- **grafanaIngress.yam/l**/  
+*("IngressRoute for Traefik in 'prometheus-grafana' namespace, directing traffic to 'prometheus-grafana' service at IP 20.22.117.120 with path prefix '/grafana/'.")*  
 |-- **grafanaScript.sh/**  
+*("Bash script to add key-value pairs to a ConfigMap named 'prometheus-grafana' in the 'prometheus-grafana' namespace for Grafana configuration. Used in the deployResources.sh script")*  
 |-- **grafanaValues.yaml/**  
+*("Grafana values file specifying the admin password as 'Password123'.")*  
 |-- **sshSecret.yaml/**  
+*("Secret named 'private-repo' in 'argocd' namespace, labeled as a repository secret. Contains Git repository details with type 'git', URL 'git@github.com:devops-g2/prodeploy.git', and an SSH private key thats get set during the running of the deployAKS.sh script.)*  
 |-- **traefikAuth.yaml/**  
+*("Secret 'traefik-dashboard-auth-secret' with basic authentication credentials for Traefik dashboard. Middleware includes 'traefik-dashboard-auth' and 'content-type-autodetect'.")*  
 |-- **traefikValues.yaml/**  
+*(This Helm chart values file configures Traefik, a Kubernetes ingress controller. It defines deployment, ingress, providers, ports, TLS, autoscaling, and more.)*  
 |-- ..../
 
 ## Close cluster

@@ -139,3 +139,11 @@ az group delete --resource-group resGrp1 -y
 ```
 This will shut down the cluster and delete everything and a restart and re-installation of the resources is required to get it functioning again.
 
+## Contributors
+
+This project is made possible by the following contributors:
+
+ - Real name: Kevin Sundberg - Github name: [Dueweb](https://github.com/DueWeb) 
+ - Real name: Hampus  - Github name: [QAsRevenge](https://github.com/QAsRevenge)
+
+

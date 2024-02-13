@@ -144,6 +144,6 @@ This will shut down the cluster and delete everything and a restart and re-insta
 This repo and azure config is made by the following contributors:
 
  - Real name: Kevin Sundberg - Github name: [Dueweb](https://github.com/DueWeb) 
- - Real name: Hampus  - Github name: [QAsRevenge](https://github.com/QAsRevenge)
+ - Real name: Hampus Molin  - Github name: [QAsRevenge](https://github.com/QAsRevenge)
 
 
